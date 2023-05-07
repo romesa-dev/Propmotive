@@ -1,0 +1,45 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+.ot-small{
+    font-family: var(--open-sans);
+}
+.ot-caption{
+    font-family: var(--unna);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21.79px;
+    letter-spacing: 20px;
+    text-align: center;
+    color: var(--color-caption)
+
+}
+
+.sub-heading{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.sub-heading .text{
+
+    font-family: var(--unna);
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 55.3px;
+    margin-bottom: 15px;
+    
+}
+
+.sub-heading .outline{
+    width: 200px;
+    height: 0px;
+    border-bottom: 2px solid #343434CC;
+}
+
+.ut-small{
+    font-family: var(--unna)
+}
