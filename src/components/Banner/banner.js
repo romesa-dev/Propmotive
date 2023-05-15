@@ -1,7 +1,8 @@
-import './banner.css'
+import { Image } from "@mantine/core";
 export default function Banner() {
-    return(<>
-    <div className="tag"></div>
-    
-    </>)
+  return (
+ 
+      <Image src={"./papBanner.jpg"}/>
+
+  );
 }

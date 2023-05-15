@@ -1,3 +1,8 @@
+/* *{
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+} */
 
 :root {
  --gap: 20px;
@@ -6,4 +11,3 @@
  --unna: 'Unna', serif;
  --color-caption: #343434;
 }
-
