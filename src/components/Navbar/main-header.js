@@ -3,18 +3,26 @@ import React from "react";
 import { useMainHeaderStyles } from "./navbar.style";
 import MenuItem, { PlainMenu } from "./Menu-Item/menuItem";
 import { SearchIcon } from "../Icons/icons";
-import {BiDotsVerticalRounded} from "react-icons/bi"
+import { BiDotsVerticalRounded } from "react-icons/bi";
 
 export default function MainHeader() {
   const {
-    classes: { mainHeader, wraper, logo, menuItems, searchBar, input, menuItemsButton },
+    classes: {
+      mainHeader,
+      wraper,
+      logo,
+      menuItems,
+      searchBar,
+      input,
+      menuItemsButton,
+    },
     cx,
   } = useMainHeaderStyles();
   return (
     <Box className={mainHeader}>
-      <Flex className={wraper} >
+      <Flex className={wraper}>
         <div className={logo}>
-          <Image  src={"./papLogo.png"} />
+          <Image src={"./papLogo.png"} />
         </div>
         <div className={menuItems}>
           <Group h="56px">
@@ -26,12 +34,10 @@ export default function MainHeader() {
           </Group>
         </div>
         <div className={searchBar}>
-          <Input className={input} placeholder="search" 
-            icon={<SearchIcon/>}
-          />
+          <Input className={input} placeholder="search" icon={<SearchIcon />} />
         </div>
         <div className={menuItemsButton}>
-          <BiDotsVerticalRounded fontSize={25}/>
+          <BiDotsVerticalRounded fontSize={25} />
         </div>
       </Flex>
     </Box>

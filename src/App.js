@@ -4,8 +4,9 @@ import Home from "./pages/home";
 import NavBar from "./components/Navbar/navbar";
 export const AppShellCss = createStyles(() => ({
   appShell: {
-    ["& > div > main"]: {
-      minHeight: "unsest",
+    ["&  main"]: {
+      minHeight: "unset",
+      backgroundColor: "#F0F5F0"
     }
   }
 }))
@@ -29,7 +30,7 @@ function App() {
       }}
     >
       <AppShell className={appShell} padding={0} header={<NavBar />}>
-        <Home />
+        <Home/>
       </AppShell>
     </MantineProvider>
   );

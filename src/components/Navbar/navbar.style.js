@@ -1,4 +1,4 @@
-import { createStyles} from "@mantine/core";
+import { createStyles } from "@mantine/core";
 
 export const useNavbarStyle = createStyles(() => ({
   navbar: {
@@ -7,7 +7,6 @@ export const useNavbarStyle = createStyles(() => ({
 }));
 export const useMainHeaderStyles = createStyles((theme) => ({
   mainHeader: {
-    // height: "80px",
     backgroundColor: "#F0F5F0",
     paddingLeft: "20px",
     paddingRight: "20px",
@@ -15,18 +14,11 @@ export const useMainHeaderStyles = createStyles((theme) => ({
 
   wraper: {
     height: "80px",
-    // paddingLeft: "10%",
-    // paddingRight: "10%",
-    // width: "fit-content",
     alignItems: "center",
     justifyContent: "space-arround",
-    [theme.fn.smallerThan("md")]: {},
-    [theme.fn.smallerThan("sm")]: {},
   },
 
   logo: {
-    // backgroundColor: "red",
-
     height: "51px",
     width: " 133px",
     minWidth: "133px",
@@ -40,7 +32,7 @@ export const useMainHeaderStyles = createStyles((theme) => ({
 
   menuItems: {
     flex: "1 1 auto",
-    height: "56px", 
+    height: "56px",
     minWidth: "fit-content",
     justifyContent: "space-even",
 
@@ -53,7 +45,6 @@ export const useMainHeaderStyles = createStyles((theme) => ({
           padding: "5px",
         },
         gap: "unset",
-        // maxWidth:"fit-content"
       },
     },
     [theme.fn.smallerThan("sm")]: {
@@ -68,12 +59,10 @@ export const useMainHeaderStyles = createStyles((theme) => ({
       alignItems: "center",
       display: "flex",
       height: "80px",
-      // backgroundColor: "gray",
     },
   },
 
   searchBar: {
-    // backgroundColor: "gray",
     flex: "1 0 203px",
     height: "51px",
     minWidth: 203,

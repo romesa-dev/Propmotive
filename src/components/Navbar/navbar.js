@@ -1,15 +1,15 @@
 import { Box, Button, Flex, Group, Image, Header } from "@mantine/core";
 import MiniHeader from "./min-header";
 import MainHeader from "./main-header";
-import {useNavbarStyle} from './navbar.style'
+import { useNavbarStyle } from "./navbar.style";
 export default function NavBar() {
-    const {classes:{navbar}, cx} = useNavbarStyle()
+  const {
+    classes: { navbar },
+  } = useNavbarStyle();
   return (
-    
-      <div className={navbar}>
-        <MiniHeader />
-        <MainHeader />
-      </div>
-  
+    <div className={navbar}>
+      <MiniHeader />
+      <MainHeader />
+    </div>
   );
 }
