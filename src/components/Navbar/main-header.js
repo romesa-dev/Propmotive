@@ -1,9 +1,10 @@
-import { Box, Flex, Group, Image, Input } from "@mantine/core";
+import { Box, Flex, Group, Image, Input, Text } from "@mantine/core";
 import React from "react";
 import { useMainHeaderStyles } from "./navbar.style";
 import MenuItem, { PlainMenu } from "./Menu-Item/menuItem";
 import { SearchIcon } from "../Icons/icons";
 import { BiDotsVerticalRounded } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 export default function MainHeader() {
   const {
@@ -26,7 +27,11 @@ export default function MainHeader() {
         </div>
         <div className={menuItems}>
           <Group h="56px">
-            <PlainMenu>Home</PlainMenu>
+            <PlainMenu>
+              <Link to={"/"} style={{ textDecoration: "none", color: "black" }}>
+                Home
+              </Link>
+            </PlainMenu>
             <MenuItem>Plants</MenuItem>
             <MenuItem>Planters</MenuItem>
             <MenuItem>Essentials</MenuItem>

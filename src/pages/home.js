@@ -5,29 +5,31 @@ import { UseRoundCardStyle } from "../components/Cards/sectionCards.style";
 import { ArrowRight } from "../components/Icons/icons";
 import { Anchor } from "@mantine/core";
 import {
-  infoSection,
-  useImageSectionStyle,
+  useMdImgSectionStyle,
   useInfoSectionStyle,
   useSquareCardLgStyle,
   useSquareCardMdStyle,
   useSquareCardSmStyle,
+  useSmImgSectionStyle,
 } from "./home.style";
 import { ShopButton } from "../components/Buttons/shop-button";
 import { Paragraph } from "../components/Typography/text";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const {
     classes: { breadCrumb },
   } = UseRoundCardStyle();
 
-  const items = [{ title: "See all", href: "#" }].map((item, index) => (
-    <Anchor href={item.href} key={index}>
+  const items = [{ title: "See all", to: "/shop" }].map((item, index) => (
+    <Link style={{ color: "#3B823E" }} to={item.to} key={index}>
       {item.title}
-    </Anchor>
+    </Link>
   ));
   return (
     <>
-      <Banner />
+      <Banner imgUrl={"./papBanner.jpg"} />
+
       <Breadcrumbs className={breadCrumb} separator="" mt="xs">
         {items}
         <ArrowRight />
@@ -36,7 +38,8 @@ export default function Home() {
         style={{
           margin: "0 auto",
           //  border: "thin solid black",
-          maxWidth: "90%",
+          maxWidth: "90vw",
+          width: "90vw",
           minWidth: "380px",
         }}
       >
@@ -166,11 +169,22 @@ export default function Home() {
           <InfoSection imageUrl="./SquareLgCardImg/infoImage.png" />
         </SectionCards>
 
-        <SectionCards text="Celebs You Love, Love Us ">
-          <SmImageContainer imageUrl="./ImageSection/Caleb1.png"/>
-          <SmImageContainer imageUrl="./ImageSection/Caleb2.png"/>
-          <SmImageContainer imageUrl="./ImageSection/Caleb3.png"/>
-          <SmImageContainer imageUrl="./ImageSection/Caleb4.png"/>
+        <SectionCards text="Celebs You Love, Love Us">
+          <SmImageContainer imageUrl="./ImageSection/Caleb1.png" />
+          <SmImageContainer imageUrl="./ImageSection/Caleb2.png" />
+          <SmImageContainer imageUrl="./ImageSection/Caleb3.png" />
+          <SmImageContainer imageUrl="./ImageSection/Caleb4.png" />
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+            }}
+          >
+            <MdImageContainer imageUrl="./ImageSection/Caleb5.png" />
+            <MdImageContainer imageUrl="./ImageSection/Caleb6.png" />
+            <MdImageContainer imageUrl="./ImageSection/Caleb7.png" />
+          </div>
         </SectionCards>
       </div>
     </>
@@ -208,7 +222,7 @@ function SquareCardMd({ imageUrl }) {
   );
 }
 
-function SquareCardSm({ imageUrl, plantName, origPrice }) {
+export function SquareCardSm({ imageUrl, plantName, origPrice }) {
   const {
     classes: { squareCardSm },
     cx,
@@ -216,10 +230,21 @@ function SquareCardSm({ imageUrl, plantName, origPrice }) {
   return (
     <div className={squareCardSm}>
       <div>
-        <Image src={imageUrl}></Image>
-        <Text fw={700} fz={20}>
+        <Link to="./product-details">
+          <Image src={imageUrl} />
+        </Link>
+        <Link
+          to="./product-details"
+          style={{
+            textDecoration: "none",
+            cursor: "text",
+            fontWeight: 700,
+            fontSize: "20px",
+            color: "#343434",
+          }}
+        >
           {plantName}
-        </Text>
+        </Link>
         <div style={{ display: "flex" }}>
           <Text fw={400} fz={20}>
             $ 350
@@ -280,7 +305,16 @@ function SquareCardLg({ imageUrl, text }) {
 
 function InfoSection({ imageUrl }) {
   const {
-    classes: { InfoSection, infoSectionHeading, heading, outline, buttonSm, mainContainer, infoParagraph1, infoParagraph2 },
+    classes: {
+      InfoSection,
+      infoSectionHeading,
+      heading,
+      outline,
+      buttonSm,
+      mainContainer,
+      infoParagraph1,
+      infoParagraph2,
+    },
   } = useInfoSectionStyle();
   const inputString = `Whether it is growing your own food or setting up your roof-top garden, we provide the highest quality landscaping services,contributing to a greener world and substantial living!
 
@@ -310,23 +344,37 @@ function InfoSection({ imageUrl }) {
       </div>
 
       <div>
-        <Image  miw={355} maw={588} mah={439} mih={388} src={imageUrl} />
+        <Image miw={355} maw={588} mah={439} mih={388} src={imageUrl} />
       </div>
-      
     </Box>
   );
 }
 
-function SmImageContainer({ imageUrl }){
+function SmImageContainer({ imageUrl }) {
   const {
     classes: { smImage },
     cx,
-  } = useImageSectionStyle();
-  return(
-      <div className={smImage}>
-        <div>
-          <Image miw={200} maw={285} src={imageUrl}/>
-        </div>
+  } = useSmImgSectionStyle();
+  return (
+    <div className={smImage}>
+      <div>
+        <Image miw={200} maw={285} src={imageUrl} />
       </div>
-  )
+    </div>
+  );
+}
+
+function MdImageContainer({ imageUrl }) {
+  const {
+    classes: { mdImage },
+    cx,
+  } = useMdImgSectionStyle();
+
+  return (
+    <div className={mdImage}>
+      <div>
+        <Image miw={"100%"} maw={386.67} src={imageUrl} />
+      </div>
+    </div>
+  );
 }

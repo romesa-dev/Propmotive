@@ -2,20 +2,24 @@ import { AppShell, MantineProvider, createStyles } from "@mantine/core";
 import "./App.css";
 import Home from "./pages/home";
 import NavBar from "./components/Navbar/navbar";
+import Footer from "./components/Footer/footer";
+import ShopPage from "./pages/shopPage";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ProductDetailsPage from "./pages/productDetailsPage";
+
 export const AppShellCss = createStyles(() => ({
   appShell: {
     ["&  main"]: {
       minHeight: "unset",
-      backgroundColor: "#F0F5F0"
-    }
-  }
-}))
+      backgroundColor: "#F0F5F0",
+    },
+  },
+}));
 function App() {
   const {
-    classes: {appShell},
+    classes: { appShell },
   } = AppShellCss();
   return (
-    
     <MantineProvider
       withGlobalStyles
       withNormalizeCSS
@@ -29,9 +33,16 @@ function App() {
         },
       }}
     >
+      <Router>
       <AppShell className={appShell} padding={0} header={<NavBar />}>
-        <Home/>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/shop" element={<ShopPage />} />
+          <Route path="/product-details" element={<ProductDetailsPage />} />
+        </Routes>
       </AppShell>
+      </Router>
+      <Footer />
     </MantineProvider>
   );
 }
@@ -80,3 +91,44 @@ function cssToObject(str) {
     });
   return JSON.stringify(cssObj);
 }
+
+// window.addEventListener('resize', function() {
+//   var elements = document.getElementsByTagName('*'); // Get all elements in the document
+
+//   for (var i = 0; i < elements.length; i++) {
+//     var element = elements[i];
+//     var scrollWidth = element.scrollWidth;
+//     var clientWidth = element.clientWidth;
+
+//     if (scrollWidth > clientWidth) {
+//       console.log('Element with scroll bar:', element);
+//       // You can perform additional actions on the element here
+//     }
+//   }
+// });
+
+window.addEventListener("resize", function () {
+  var elements = document.getElementsByTagName("*"); // Get all elements in the document
+
+  for (var i = 0; i < elements.length; i++) {
+    var element = elements[i];
+    var scrollWidth = element.scrollWidth;
+    var clientWidth = element.clientWidth;
+
+    if (scrollWidth > clientWidth) {
+      var childElements = element.getElementsByTagName("*"); // Get all child elements
+
+      for (var j = 0; j < childElements.length; j++) {
+        var childElement = childElements[j];
+        var childScrollWidth = childElement.scrollWidth;
+        var childClientWidth = childElement.clientWidth;
+
+        if (childScrollWidth > childClientWidth) {
+          console.log("Parent Element:", element);
+          console.log("Child Element:", childElement);
+          // You can perform additional actions on the child element here
+        }
+      }
+    }
+  }
+});

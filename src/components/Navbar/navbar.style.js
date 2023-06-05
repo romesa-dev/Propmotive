@@ -8,14 +8,16 @@ export const useNavbarStyle = createStyles(() => ({
 export const useMainHeaderStyles = createStyles((theme) => ({
   mainHeader: {
     backgroundColor: "#F0F5F0",
-    paddingLeft: "20px",
-    paddingRight: "20px",
+    borderBottom: "1px solid #343434",
+   
   },
 
   wraper: {
     height: "80px",
     alignItems: "center",
     justifyContent: "space-arround",
+    paddingLeft: "20px",
+    paddingRight: "20px",
   },
 
   logo: {
@@ -66,6 +68,9 @@ export const useMainHeaderStyles = createStyles((theme) => ({
     flex: "1 0 203px",
     height: "51px",
     minWidth: 203,
+    [theme.fn.smallerThan("md")]: {
+      minWidth: 'unset',
+      flex: "1 1 auto",    },
     [theme.fn.smallerThan("sm")]: {
       paddingLeft: "20px",
       paddingRight: "20px",

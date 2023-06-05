@@ -1,6 +1,6 @@
 import { Image } from "@mantine/core";
-export default function Banner() {
+export default function Banner({imgUrl}) {
   return (
-      <Image src={"./papBanner.jpg"}/>
+      <Image src={imgUrl}/>
   );
 }
