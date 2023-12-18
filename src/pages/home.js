@@ -230,11 +230,11 @@ export function SquareCardSm({ imageUrl, plantName, origPrice }) {
   return (
     <div className={squareCardSm}>
       <div>
-        <Link to="./product-details">
+        <Link to="/product-details">
           <Image src={imageUrl} />
         </Link>
         <Link
-          to="./product-details"
+          to="/product-details"
           style={{
             textDecoration: "none",
             cursor: "text",

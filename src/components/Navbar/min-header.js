@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { CartIcon, UserIcon } from "../Icons/icons";
 import { useMiniHeaderStyles } from "./navbar.style";
 
@@ -13,10 +14,15 @@ export default function MiniHeader() {
       </div>
       <div className={icon}>
         <div>
-          <CartIcon />
+          <Link to={"/cart"} style={{ textDecoration: "none", color: "white" }}>
+            <CartIcon />
+          </Link>
         </div>
         <div>
+          <Link to={"/test"} style={{ textDecoration: "none", color: "white" }}>
           <UserIcon />
+          </Link>
+          
         </div>
       </div>
     </div>

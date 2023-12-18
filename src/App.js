@@ -6,6 +6,8 @@ import Footer from "./components/Footer/footer";
 import ShopPage from "./pages/shopPage";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ProductDetailsPage from "./pages/productDetailsPage";
+import {CartPage} from "./pages/cartPage";
+import { MyComponent } from "./pages/cartPage2.style";
 
 export const AppShellCss = createStyles(() => ({
   appShell: {
@@ -39,6 +41,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<ShopPage />} />
           <Route path="/product-details" element={<ProductDetailsPage />} />
+          <Route path="/cart" element={<CartPage/>} />
+          <Route path="/test" element={<MyComponent />} />
         </Routes>
       </AppShell>
       </Router>
